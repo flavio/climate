@@ -43,7 +43,7 @@ func (c *cover) isSet() bool {
 func (c *cover) run(pack string) bool {
 	printBackendStatus("cover")
 
-	cmd := exec.Command("go", "test", "-coverprofile=c.out", "-covermode=count", pack)
+	cmd := exec.Command("go", "test", "-race", "-coverprofile=c.out", "-covermode=count", pack)
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
